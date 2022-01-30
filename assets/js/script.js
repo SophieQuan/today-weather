@@ -1,5 +1,4 @@
 var cityInput = document.querySelector(".cityInput");
-var apiKey = "0f8e0078b0885b8a28646e75d16c09f3";
 var searchBtn = document.querySelector(".btn");
 var currentWeather = document.querySelector(".currentWeather");
 var fiveDaysForecastContainer = document.querySelector(".fiveDaysForecast");
@@ -7,6 +6,9 @@ var currentDay = moment().format('L');
 
 var historySearchList = [];
 
+
+
+var apiKey = "0f8e0078b0885b8a28646e75d16c09f3";
 
 var weatherToday = function(cityName) {
     cityName = cityInput.value;
@@ -86,13 +88,14 @@ var fiveDaysForecast = function(lat, lon) {
             return forecastInfo.json();
         })
         .then(function(forecastData) {
+
+            //clear forecast container
+            fiveDaysForecastContainer.textContent = "";
+
             //create heading
             var forecastHeading = document.createElement("h2");
             forecastHeading.textContent = "5 Days Forecast";
             fiveDaysForecastContainer.append(forecastHeading);
-
-            //clear forecast container
-            fiveDaysForecastContainer.textContent = "";
 
             //display 5 days weather forecast info
             for (var i = 0; i < 5; i++) {
