@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.hero {
+    height: 15vh;
+    background-color: rgb(19, 19, 65);
+    width: 100%;
+    color: white;
+}
+
+input {
+    margin-left: 10px;
+}
+
+
+/* .uvColour {
+    background-color: red;
+} */
+
+.uvColour {
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px
+}

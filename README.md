@@ -23,8 +23,23 @@ A weather dashboard that will run in the browser and feature dynamically updated
 
 * Most recent search are saved
 
+# Build with
+    * HTML
+    * CSS 
+    * jQuery
+    * BOOTRAP
+    * Moment.js
+
+## Web URL
+    https://sophiequan.github.io/today-weather/
+
+## Repository URL
+    https://github.com/SophieQuan/today-weather
+
 # Screenshot
 ![screen shot Today Weather](assets/images/screenshot.png?raw=true "Today Weather README.md screenshot")
 
 # Demo
 ![Today Weather Demo](assets/images/demo.gif?raw=true "Today Weather gif demo image")
+
+
