@@ -154,4 +154,5 @@ searchBtn.addEventListener("click", function(e) {
 
 $(document).ready(function() {
     var retrieveHistory = JSON.parse(localStorage.getItem('searchedCity'));
+    console.log(retrieveHistory);
 });
