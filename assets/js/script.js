@@ -134,9 +134,11 @@ var fiveDaysForecast = function(lat, lon) {
 
 searchBtn.addEventListener("click", function(e) {
     e.preventDefault();
-    weatherToday();
 
-    var searchedCity = cityInput.value;
+
+    var searchedCity = $(".cityInput").val().trim();
+    weatherToday(searchedCity);
+
     //add searched city into history search list and avoid repeat history city name in the array
     if (!historySearchList.includes(searchedCity)) {
         historySearchList.push(searchedCity);
@@ -151,5 +153,5 @@ searchBtn.addEventListener("click", function(e) {
 });
 
 $(document).ready(function() {
-    var searchHistoryArr = localStorage.getItem("searchedCity");
+    var retrieveHistory = JSON.parse(localStorage.getItem('searchedCity'));
 });
