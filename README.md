@@ -39,7 +39,5 @@ A weather dashboard that will run in the browser and feature dynamically updated
 # Screenshot
 ![screen shot Today Weather](assets/images/screenshot.png?raw=true "Today Weather README.md screenshot")
 
-# Demo
-![Today Weather Demo](assets/images/demo.gif?raw=true "Today Weather gif demo image")
 
 
