@@ -1,27 +1,86 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-.hero {
-    height: 15vh;
-    background-color: rgb(19, 19, 65);
-    width: 100%;
-    color: white;
-}
-
-input {
-    margin-left: 10px;
-}
-
-
-/* .uvColour {
-    background-color: red;
-} */
-
-.uvColour {
-    padding: 5px 10px;
-    color: white;
-    border-radius: 5px
-}
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'P;oppins', sans-serif;
+            background-color: rgb(241, 241, 241);
+        }
+        
+        p {
+            font-size: 20px;
+        }
+        
+        .hero {
+            height: 15vh;
+            background-color: #14146b;
+            width: 100%;
+            color: white;
+            text-align: center;
+            background-image: url(../images/giphy\ \(4\).gif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero a {
+            color: rgb(255, 255, 255);
+            text-align: left;
+            text-shadow: 2px 2px #000000;
+            font-size: 40px;
+        }
+        
+        .hero a:hover {
+            text-decoration: none;
+        }
+        
+        input {
+            margin-left: 10px;
+        }
+        
+        .uvColour {
+            padding: 5px 10px;
+            color: white;
+            border-radius: 5px
+        }
+        
+        .list-group-item {
+            text-transform: lowercase;
+        }
+        
+        .fiveDaysForecast .card-body {
+            background-color: rgb(255, 255, 255);
+            margin: 10px;
+            border-radius: 5px;
+        }
+        
+        .card-header,
+        .currentWeather .heading {
+            background-color: #d3e7fa;
+            width: 100%;
+        }
+        
+        .currentWeatherContainer {
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        
+        .fiveDaysForecast img {
+            width: 70%;
+        }
+        
+        footer {
+            background-color: #a5d1fa;
+            color: #000;
+            height: 7vh;
+        }
+        
+        @media (max-width: 376px) {
+            .col-12 {
+                padding-right: 0;
+                padding-left: 0;
+                text-align: center;
+            }
+        }
