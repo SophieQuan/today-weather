@@ -11,9 +11,9 @@ var apiKey = "0f8e0078b0885b8a28646e75d16c09f3";
 
 var weatherToday = function(cityName) {
 
-    var url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${apiKey}`;
+    var url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
 
-    //console.log(url);
+    console.log(url);
 
     //get city name, temp, wind speed, humidity and uv value
     fetch(url)
@@ -24,6 +24,11 @@ var weatherToday = function(cityName) {
             //get city name, temp, wind speed, humidity
             var weatherHeading = data.name;
             var weatherTemp = data.main.temp;
+            var feelLike = data.main.feels_like;
+            var tempMax = data.main.temp_max;
+            var tempMin = data.main.temp_min;
+            var feelLike = data.main.feels_like;
+            var condition = data.weather[0].description;
             var weatherWind = data.wind.speed;
             var weatherHumidity = data.main.humidity;
 
@@ -42,11 +47,22 @@ var weatherToday = function(cityName) {
                     //display weather today
                     var weather = $(`
                         <div class="col-12 p-0 mt-3 currentWeatherContainer">
-                            <h2 class="heading card-header col-12">${weatherHeading} (${currentDay})</h2>
-                            <p class="p-1 pl-3"><strong>Temp: </strong>${weatherTemp}</p>
-                            <p class="p-1 pl-3"><strong>Wind: </strong>${weatherWind} MPH</p>
-                            <p class="p-1 pl-3"><strong>Humidity: </strong>${weatherHumidity}</p>
-                            <p class="p-1 pl-3"><strong>UV Index: </strong><span class="uvColour">${uvValue}</span></p>
+                            <h2 class="heading card-header col-12">Today's Weather</h2>
+                            <h3 class="p-2 pl-3 weatherTodayHeading"><strong>${weatherHeading} (${currentDay})</strong></h3>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="p-1 pl-3"><strong>Current Temp: </strong>${weatherTemp}°C</p>
+                                    <p class="p-1 pl-3"><strong>Feels Like: </strong>${feelLike}°C</p>
+                                    <p class="p-1 pl-3"><strong>High: </strong>${tempMax}°C</p>
+                                    <p class="p-1 pl-3"><strong>Low: </strong>${tempMin}°C</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="p-1 pl-3"><strong>Condition: </strong>${condition}</p>
+                                    <p class="p-1 pl-3"><strong>Wind: </strong>${weatherWind} MPH</p>
+                                    <p class="p-1 pl-3"><strong>Humidity: </strong>${weatherHumidity}</p>
+                                    <p class="p-1 pl-3"><strong>UV Index: </strong><span class="uvColour">${uvValue}</span></p>
+                                </div>
+                            </div>
                         </div>
                     `);
 
@@ -76,7 +92,8 @@ var weatherToday = function(cityName) {
 }
 
 var fiveDaysForecast = function(lat, lon) {
-    var fiveDaysForeCastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
+    var fiveDaysForeCastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,alerts&appid=${apiKey}`
+    console.log(fiveDaysForeCastURL);
 
     fetch(fiveDaysForeCastURL)
         .then(function(forecastInfo) {
@@ -99,6 +116,8 @@ var fiveDaysForecast = function(lat, lon) {
                     date: forecastData.daily[i].dt,
                     icon: forecastData.daily[i].weather[0].icon,
                     temp: forecastData.daily[i].temp.day,
+                    tempMin: forecastData.daily[i].temp.min,
+                    tempMax: forecastData.daily[i].temp.max,
                     humidity: forecastData.daily[i].humidity,
                 }
                 var displayDate = moment.unix(cityWeather.date).format("MM/DD/YYYY");
@@ -106,9 +125,14 @@ var fiveDaysForecast = function(lat, lon) {
 
                 var displayForecast = $(`
                     <div class="card-body mt-3">
-                        <h3>${displayDate}</h3>
-                        <p> ${iconImageURL}</p>
-                        <p><strong>Temp: </strong>${cityWeather.temp} °F</p>
+                        <h3 class="dailyDate">${displayDate}</h3>
+                        <div class="row">
+                            <p class="col-4 iconImg"> ${iconImageURL}</p>
+
+                            <p class="col-8 dailyTemp" >${cityWeather.temp} °C</p>
+                        </div>
+                        <p><strong>Min: </strong>${cityWeather.tempMin}°C</p>
+                        <p><strong>Max: </strong>${cityWeather.tempMax}°C</p>
                         <p><strong>Humidity: </strong>${cityWeather.humidity}\%</p>
                     </div>
                 `);
