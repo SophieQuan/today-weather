@@ -73,11 +73,11 @@
         
         .weatherTodayHeading {
             color: #14146b;
-            height: 7vh;
             justify-content: center;
             display: flex;
             flex-direction: column;
             text-indent: 20px;
+            font-size: 30px;
         }
         
         .weatherCondition {
