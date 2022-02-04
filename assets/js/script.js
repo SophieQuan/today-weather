@@ -57,7 +57,7 @@ var weatherToday = function(cityName) {
                                     <p class="p-1 pl-3"><strong>Low: </strong>${tempMin}°C</p>
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-6">
-                                    <p class="p-1 pl-3"><strong>Condition: </strong>${condition}</p>
+                                    <p class="p-1 pl-3 weatherCondition"><strong>Condition: </strong>${condition}</p>
                                     <p class="p-1 pl-3"><strong>Wind: </strong>${weatherWind} MPH</p>
                                     <p class="p-1 pl-3"><strong>Humidity: </strong>${weatherHumidity}</p>
                                     <p class="p-1 pl-3"><strong>UV Index: </strong><span class="uvColour">${uvValue}</span></p>

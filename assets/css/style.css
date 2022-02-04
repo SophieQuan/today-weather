@@ -80,6 +80,10 @@
             text-indent: 20px;
         }
         
+        .weatherCondition {
+            text-transform: capitalize;
+        }
+        
         .fiveDaysForecast img {
             width: 70%;
         }
