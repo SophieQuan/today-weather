@@ -9,6 +9,10 @@
             background-color: rgb(241, 241, 241);
         }
         
+        main {
+            min-height: 80vh;
+        }
+        
         p {
             font-size: 20px;
         }
@@ -101,14 +105,18 @@
             color: #000;
             height: 7vh;
             position: relative;
-            bottom: 0;
+            bottom: 0px;
             width: 100%;
         }
         
-        @media (max-width: 376px) {
-            .col-12 {
-                padding-right: 0;
-                padding-left: 0;
-                text-align: center;
+        @media (max-width: 576px) {
+            .listOfCities button {
+                font-size: 18px;
+            }
+        }
+        
+        @media screen and (min-width: 768px) {
+            h3 {
+                font-size: 20px;
             }
         }

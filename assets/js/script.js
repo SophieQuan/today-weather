@@ -50,13 +50,13 @@ var weatherToday = function(cityName) {
                             <h2 class="heading card-header col-12">Today's Weather</h2>
                             <h3 class="p-2 pl-3 weatherTodayHeading"><strong>${weatherHeading} (${currentDay})</strong></h3>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-12 col-md-6 col-lg-6">
                                     <p class="p-1 pl-3"><strong>Current Temp: </strong>${weatherTemp}°C</p>
                                     <p class="p-1 pl-3"><strong>Feels Like: </strong>${feelLike}°C</p>
                                     <p class="p-1 pl-3"><strong>High: </strong>${tempMax}°C</p>
                                     <p class="p-1 pl-3"><strong>Low: </strong>${tempMin}°C</p>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-md-6 col-lg-6">
                                     <p class="p-1 pl-3"><strong>Condition: </strong>${condition}</p>
                                     <p class="p-1 pl-3"><strong>Wind: </strong>${weatherWind} MPH</p>
                                     <p class="p-1 pl-3"><strong>Humidity: </strong>${weatherHumidity}</p>
