@@ -31,6 +31,7 @@ A weather dashboard that will run in the browser and feature dynamically updated
     * jQuery
     * BOOTRAP
     * Moment.js
+    * OpenWeather API
 
 ## Web URL
     https://sophiequan.github.io/today-weather/
