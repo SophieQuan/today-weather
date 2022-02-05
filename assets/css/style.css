@@ -112,6 +112,13 @@
             bottom: 0px;
             width: 100%;
         }
+        /* ERRORS */
+        
+        .errorMessageStyles {
+            padding: 20px;
+            background-color: #fff;
+            font-size: 20px;
+        }
         
         @media (max-width: 576px) {
             .listOfCities button {

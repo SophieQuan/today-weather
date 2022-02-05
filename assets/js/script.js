@@ -58,7 +58,7 @@ var weatherToday = function(cityName) {
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-6">
                                     <p class="p-1 pl-3 weatherCondition"><strong>Condition: </strong>${condition}</p>
-                                    <p class="p-1 pl-3"><strong>Wind: </strong>${weatherWind} MPH</p>
+                                    <p class="p-1 pl-3"><strong>Wind Speed: </strong>${weatherWind} MPH</p>
                                     <p class="p-1 pl-3"><strong>Humidity: </strong>${weatherHumidity}</p>
                                     <p class="p-1 pl-3"><strong>UV Index: </strong><span class="uvColour">${uvValue}</span></p>
                                 </div>
@@ -118,6 +118,7 @@ var fiveDaysForecast = function(lat, lon) {
                     temp: forecastData.daily[i].temp.day,
                     tempMin: forecastData.daily[i].temp.min,
                     tempMax: forecastData.daily[i].temp.max,
+                    windSpeed: forecastData.daily[i].wind_speed,
                     humidity: forecastData.daily[i].humidity,
                 }
                 var displayDate = moment.unix(cityWeather.date).format("MM/DD/YYYY");
@@ -131,8 +132,9 @@ var fiveDaysForecast = function(lat, lon) {
 
                             <p class="col-8 dailyTemp" >${cityWeather.temp} °C</p>
                         </div>
-                        <p><strong>Min: </strong>${cityWeather.tempMin}°C</p>
-                        <p><strong>Max: </strong>${cityWeather.tempMax}°C</p>
+                        <p><strong>High: </strong>${cityWeather.tempMin}°C</p>
+                        <p><strong>Low: </strong>${cityWeather.tempMax}°C</p>
+                        <p><strong>Wind Speed: </strong>${cityWeather.windSpeed}\%</p>
                         <p><strong>Humidity: </strong>${cityWeather.humidity}\%</p>
                     </div>
                 `);
@@ -206,7 +208,7 @@ var loadHistory = function(lastIndex) {
     var clickSearchedCity = document.querySelector('.listOfCities');
     //for the last search
     recentSearch.addEventListener('click', recentKeyword);
-    //for clicking on recent searcg
+    //for clicking on recent search
     clickSearchedCity.addEventListener('click', recentKeyword);
 
     loadLatestSearch();

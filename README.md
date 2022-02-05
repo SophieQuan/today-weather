@@ -6,9 +6,10 @@ A weather dashboard that will run in the browser and feature dynamically updated
 
 * Provides weather status:
     - city name
-    - the date
+    - current date
     - an icon representation of weather conditions
-    - temperature
+    - temperature (current temp, feels like, high, max )
+    - weather condition
     - humidity
     - wind speed
     - UV index
@@ -16,10 +17,11 @@ A weather dashboard that will run in the browser and feature dynamically updated
 * UV index with a color that indicates whether the conditions are favorable, moderate, or severe
 
 * Future weather conditions presents with a 5-day forecast that displays:
-    - the date
+    - future dates
     - an icon representation of weather conditions
-    - temperature
+    - temperature (min, max)
     - wind speed
+    - hummidity
 
 * Most recent search are saved
 
