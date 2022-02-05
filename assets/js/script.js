@@ -23,18 +23,19 @@ var weatherToday = function(cityName) {
         .then(function(data) {
             //get city name, temp, wind speed, humidity
             var weatherHeading = data.name;
-            var weatherTemp = data.main.temp;
-            var feelLike = data.main.feels_like;
-            var tempMax = data.main.temp_max;
-            var tempMin = data.main.temp_min;
-            var feelLike = data.main.feels_like;
+            var weatherTemp = data.main.temp.toFixed();
+            var feelLike = data.main.feels_like.toFixed();
+            var tempMax = data.main.temp_max.toFixed();
+            var tempMin = data.main.temp_min.toFixed();
+            var feelLike = data.main.feels_like.toFixed();
             var condition = data.weather[0].description;
-            var weatherWind = data.wind.speed;
+            var weatherWind = data.wind.speed.toFixed();
             var weatherHumidity = data.main.humidity;
 
             var lat = data.coord.lat;
             var lon = data.coord.lat;
             var uvIndexUrl = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+            console.log(uvIndexUrl);
 
             //get uv value
             fetch(uvIndexUrl)
@@ -58,7 +59,7 @@ var weatherToday = function(cityName) {
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-6">
                                     <p class="p-1 pl-3 weatherCondition"><strong>Condition: </strong>${condition}</p>
-                                    <p class="p-1 pl-3"><strong>Wind Speed: </strong>${weatherWind} MPH</p>
+                                    <p class="p-1 pl-3"><strong>Wind Speed: </strong>${weatherWind} km/h</p>
                                     <p class="p-1 pl-3"><strong>Humidity: </strong>${weatherHumidity}</p>
                                     <p class="p-1 pl-3"><strong>UV Index: </strong><span class="uvColour">${uvValue}</span></p>
                                 </div>
@@ -115,10 +116,10 @@ var fiveDaysForecast = function(lat, lon) {
                 var cityWeather = {
                     date: forecastData.daily[i].dt,
                     icon: forecastData.daily[i].weather[0].icon,
-                    temp: forecastData.daily[i].temp.day,
-                    tempMin: forecastData.daily[i].temp.min,
-                    tempMax: forecastData.daily[i].temp.max,
-                    windSpeed: forecastData.daily[i].wind_speed,
+                    temp: forecastData.daily[i].temp.day.toFixed(),
+                    tempMin: forecastData.daily[i].temp.min.toFixed(),
+                    tempMax: forecastData.daily[i].temp.max.toFixed(),
+                    windSpeed: forecastData.daily[i].wind_speed.toFixed(),
                     humidity: forecastData.daily[i].humidity,
                 }
                 var displayDate = moment.unix(cityWeather.date).format("MM/DD/YYYY");
@@ -134,7 +135,7 @@ var fiveDaysForecast = function(lat, lon) {
                         </div>
                         <p><strong>High: </strong>${cityWeather.tempMin}°C</p>
                         <p><strong>Low: </strong>${cityWeather.tempMax}°C</p>
-                        <p><strong>Wind Speed: </strong>${cityWeather.windSpeed}\%</p>
+                        <p><strong>Wind Speed: </strong>${cityWeather.windSpeed}\ km/h</p>
                         <p><strong>Humidity: </strong>${cityWeather.humidity}\%</p>
                     </div>
                 `);
